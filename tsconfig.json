@@ -12,7 +12,10 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@config/*": ["src/configuration/*"]
+      "@config/*": ["src/configuration/*"],
+      "@gql/*":["src/gql/*"],
+      "@user/*": ["src/modules/user/*"],
+      "@auth/*":["src/modules/auth/*"]
     }
   }
 }
