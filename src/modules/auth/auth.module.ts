@@ -5,6 +5,7 @@ import { ConfigService } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy'
+import { AuthResolver } from './auth.resolver'
 import { UserSchema } from '@user/user.schema'
 import { ConfigurationModule } from '@config/configuration.module';
 import { IEnvironmentVariables } from '@config/configuration.interface'
@@ -16,7 +17,7 @@ import { IEnvironmentVariables } from '@config/configuration.interface'
         name: 'User',
         schema: UserSchema
       }
-    ]), ,
+    ]),
     PassportModule.register({
       defaultStrategy: 'jwt',
     }),
@@ -31,9 +32,9 @@ import { IEnvironmentVariables } from '@config/configuration.interface'
           },
         };
       },
-    }),
+    })
   ],
-  providers: [AuthService, ConfigService, JwtStrategy],
+  providers: [AuthService, ConfigService, JwtStrategy, AuthResolver],
   exports: [JwtStrategy, PassportModule, AuthService]
 })
 export class AuthModule { }
