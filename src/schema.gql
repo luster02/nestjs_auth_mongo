@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserGQL {
+  _id: String
+  username: String
+  email: String
+  createdAt: String
+  updatedAt: String
+}
+
+type AuthResult {
+  success: Boolean
+  error: Boolean
+  token: String!
+}
+
+type Query {
+  getUser(id: String!): UserGQL!
+  getCurentUser: UserGQL!
+}
+
+type Mutation {
+  signup(userData: SignupDto!): AuthResult!
+  signin(userData: SigninDto!): AuthResult!
+}
+
+input SignupDto {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input SigninDto {
+  username: String!
+  password: String!
+}
